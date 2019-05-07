@@ -46,7 +46,6 @@ namespace HomeWork_5_6_2019.Controllers
             var DB = new CandidateRepository(_connectionstring);
             return View(DB.GetCandidateByid(id));
         }
-        [HttpPost]
         public IActionResult Confirm(int id)
         {
             var DB = new CandidateRepository(_connectionstring);
