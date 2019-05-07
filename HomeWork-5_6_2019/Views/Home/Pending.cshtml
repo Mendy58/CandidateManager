@@ -1,0 +1,30 @@
+﻿@using HomeWork_5_6_2019.Data
+@model IEnumerable<Candidate>
+
+<div class="well">
+	<button class="btn btn-primary" id="toggle-notes">Toggle Notes</button>
+	<table class="table table-striped table-hover">
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Phone Number</th>
+			<th>Email</th>
+			<th id="notes">Notes</th>
+		</tr>
+		@foreach (Candidate c in Model)
+		{
+			<tr>
+				<td><a href="/home/details?id=@c.id">View Details</a></td>
+				<td>@c.Name</td>
+				<td>@c.PhoneNumber</td>
+				<td>@c.Email</td>
+				<td id="notes">@c.Notes</td>
+			</tr>
+		}
+	</table>
+</div>
+
+@section scripts
+	{
+	<script src="~/js/candidatenotes.js"></script>
+}

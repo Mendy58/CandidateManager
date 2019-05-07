@@ -1,0 +1,29 @@
+﻿@using HomeWork_5_6_2019.Data
+@model Candidate
+		
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="well">
+			<h4>Name: @Model.Name</h4>
+			<h4>Email: @Model.Email</h4>
+			<h4>Phone: @Model.PhoneNumber</h4>
+			@if (Model.Confirmed == null)
+			{
+				<h4>Confirmed:Pending</h4>
+			}
+			else
+			{
+				<h4>Confirmed: @Model.Confirmed </h4>
+			}
+			<h4 class="text-info">@Model.Notes</h4>
+			@if (Model.Confirmed == null)
+			{
+				<input id="Candidateid" value="@Model.id" type="hidden" />
+				@*<button class="btn btn-success" id="Confirm">Confirm</button>
+				<button class="btn btn-danger" id="Decline">Decline</button>*@
+				<a role="button" class="btn btn-success" href="/home/Confirm?id=@Model.id">Confirm</a>
+				<a role="button" class="btn btn-danger" href="/home/Decline?id=@Model.id">Decline</a>
+			}
+		</div>
+	</div>
+</div>
